@@ -9,6 +9,14 @@ In this session you will:
 • learn how to compile a C program,
 • learn what a process is and what it does.
 
+You can compile things using the make file included:
+
+    # for example to compile 1.1
+    make 1_1
+
+    # ... and to run it
+    ./1_1
+
 ## Assignments
 
 This first lab session consist of 3 assignments. In these assignments you have to

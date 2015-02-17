@@ -1,4 +1,0 @@
-/**
- * student id:
- * student no.:
- */
