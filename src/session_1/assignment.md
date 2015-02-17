@@ -4,10 +4,10 @@
 
 In this session you will:
 
-• become familiar with the Raspberry Pi,
-• write some simple C programs,
-• learn how to compile a C program,
-• learn what a process is and what it does.
+- become familiar with the Raspberry Pi,
+- write some simple C programs,
+- learn how to compile a C program,
+- learn what a process is and what it does.
 
 You can compile things using the make file included:
 

@@ -33,15 +33,15 @@ In linux there are 2 primary of working with the PI over UART:
   This option is not available on TU computers, because you'll need root access.
   You'll have to mount the second partition and move files to a location of your choice:
 
-    # look at dmesg to find out the /dev/??? that belongs to the sdcard
-    dmesg | tail
+      # look at dmesg to find out the /dev/??? that belongs to the sdcard
+      dmesg | tail
 
-    # mount that device's 2nd partition
-    # on my laptop it was /dev/mmcblk0p2
-    sudo mount /dev/mmcblk0p2 /mnt
+      # mount that device's 2nd partition
+      # on my laptop it was /dev/mmcblk0p2
+      sudo mount /dev/mmcblk0p2 /mnt
 
-    # copy your source to the pi home directory
-    cp -r path/to/source /mnt/home/pi
+      # copy your source to the pi home directory
+      cp -r path/to/source /mnt/home/pi
 
   You'll still need to connect to the TTY using the above method to run things.
 
