@@ -1,0 +1,251 @@
+%%% @mffile{
+%%%     filename="7seg.mf",
+%%%     version="",
+%%%     date="",
+%%%     filetype="mf fontcreator",
+%%%     package="m-capbas.arj"
+%%%     author="Phons Bloemen (PhB)",
+%%%     address="Eindhoven U. of Technology"
+%%%     email="Internet: phons@ei.ele.tue.nl",
+%%%     codetable="ISO/ASCII",
+%%%     checksumtype="none",
+%%%     checksum="0",
+%%%     keywords="",
+%%%     abstract="
+%%%        Input file defining the glyphs for 7 segmet display font.
+%%%        The font is drawn onto a fixed 'grid' of points. By
+%%%        deformation of this 'square' grid special effects can
+%%%        be achieved.
+%%%        Part of Capital Baseball package"
+%%%     copyright="Copyleft (L) Phons Bloemen (PhB),
+%%%        according to GNU public licence version 2 or later.
+%%%        (1) Do not change this file (even its name)
+%%%        (2) if you do make changes, first rename it to some
+%%%            other name, and mark your changes clearly.",
+%%%     }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%if unknown cmbase: input cmbase fi
+%def generate suffix t= enddef;
+%input cmtt10; font_setup;
+%% get some definitions from cmtt10 for proper setup
+%% do not ask why this sequence is used, it works!
+mode_setup;
+if unknown gensize: gensize := 10; fi;
+em# := gensize * 0.5pt#;
+slant := 0.1;
+tpp := 0.05;
+tcr := 0.22;
+font_coding_scheme:="TeX text";
+font_identifier:="D7SEG";
+font_size gensize * 1pt#;
+body_height#:=1.6em#;  % height of tallest characters
+asc_height#:=1.6em#;    % height of lowercase ascenders
+cap_height#:=1.6em#;    % height of caps
+fig_height#:=1.6em#;    % height of numerals
+x_height#:=1.6em#;    % height of lowercase without ascenders
+math_axis#:=1.6em#;    % axis of symmetry for math symbols
+bar_height#:=1.6em#;    % height of crossbar in lowercase e
+comma_depth#:=0.1em#;    % depth of comma below baseline
+desc_depth#:=0em#;    % depth of lowercase descenders
+%% monospace := false;
+%% font_setup;
+font_normal_space 1.5 * em#;
+font_quad 6em#;
+font_extra_space 1.5 * em#;
+
+%%% definitions for the corners of the 7-segment display
+
+def cornern (suffix $) =
+  z$n = z$ + (0,tf)        + (0,-tcr *tf)  ;
+  z$nl = z$ + (-1*tf,2*tf) + (-tcr * tf, 0);
+  z$nr = z$ + (1*tf,2*tf)  + (tcr *tf, 0)  ;
+  labels($n);
+enddef;
+def cornere (suffix $) =
+  z$e = z$ + (1*tf,0)      + (-tcr *tf,0)  ;
+  z$el = z$ + (2*tf,1*tf)  + (0,tcr * tf);
+  z$er = z$ + (2*tf,-1*tf) + (0,-tcr *tf)  ;
+  labels($e);
+enddef;
+def corners (suffix $) =
+  z$s = z$ + (0,-1*tf)     + (0,tcr *tf)  ;
+  z$sl = z$ + (1*tf,-2*tf) + (tcr * tf, 0);
+  z$sr = z$ + (-1*tf,-2*tf)+ (-tcr *tf, 0)  ;
+  labels($s);
+enddef;
+def cornerw (suffix $) =
+  z$w = z$ + (-1*tf,0)     + (tcr *tf,0)  ;
+  z$wl = z$ + (-2*tf,-1*tf)+ (0,-tcr * tf);
+  z$wr = z$ + (-2*tf,1*tf) + (0,tcr *tf)  ;
+  labels($w);
+enddef;
+
+def seg(expr a) =
+if a = 1 :
+  cornere(1); cornerw(2);
+  fill(z1e -- z1el -- z2wr -- z2w -- z2wl -- z1er -- cycle);
+elseif a = 2 :
+  cornern(1); corners(3);
+  fill(z1n -- z1nl -- z3sr -- z3s -- z3sl -- z1nr -- cycle);
+elseif a = 3 :
+  cornern(3); corners(5);
+  fill(z3n -- z3nl -- z5sr -- z5s -- z5sl -- z3nr -- cycle);
+elseif a = 4 :
+  cornere(5); cornerw(6);
+  fill(z5e -- z5el -- z6wr -- z6w -- z6wl -- z5er -- cycle);
+elseif a = 5 :
+  cornern(4); corners(6);
+  fill(z4n -- z4nl -- z6sr -- z6s -- z6sl -- z4nr -- cycle);
+elseif a = 6 :
+  cornern(2); corners(4);
+  fill(z2n -- z2nl -- z4sr -- z4s -- z4sl -- z2nr -- cycle);
+elseif a = 7 :
+  cornere(3); cornerw(4);
+  fill(z3e -- z3el -- z4wr -- z4w -- z4wl -- z3er -- cycle);
+elseif a = 8 :
+  pickup pencircle scaled (3*tf);
+  z2p = z2 + (2 *tf,0);
+  drawdot(z2p);
+elseif a = 9 :
+  pickup pencircle scaled (3*tf);
+  z2p = z2 + (3 *tf, 0);
+  z2p1 = z2 + (1 *tf, 0);
+  z2p2 = z2 + (3 *tf, -2 * tf);
+  z2p3 = z2 + (0, -5 * tf);
+  fill(z2p1 -- z2p2 -- z2p3 -- cycle);
+  drawdot(z2p);
+fi;
+enddef;
+
+def segchar(expr c)(text t) =
+beginchar((char c), (1+2*slant)*em#, 1.6 * em#,0)
+  clearit;
+  tf := tpp * w;
+  z1 = (tf,tf);
+  z6 = (w-2*slant*w-tf-tf,h-tf);
+  z5 = (slant*w+tf,h-tf);
+  z2-z1 = z6-z5;
+  z3 = 0.5[z1,z5];
+  z4 = 0.5[z2,z6];
+  for a = t:
+    seg(a);
+  endfor;
+endchar;
+enddef;
+
+def segpoint(expr c)(text t) =
+beginchar((char c), 3 * tpp * em#, 2 * tpp * em#, 2 * tpp * em#)
+  clearit;
+  tf := 0.3 * w;
+  z2 = (-2*w,0);
+  for a = t:
+    seg(a);
+  endfor;
+endchar;
+enddef;
+
+%%% The space character is special
+
+beginchar(32,1*em#,2*em#,0);
+endchar;
+
+%%% The 'flychar' characters follow (upper and lower case!)
+
+segchar(33)(5,8);
+segchar(34)(3,5);
+segchar(35)(1,4,7);
+segchar(36)(1,3,7,4,6);
+segchar(37)(1,3,4,6);
+segchar(38)(1,3,4);
+segchar(39)(5);
+segchar(40)(3,4,1);
+segchar(41)(4,5,1);
+segchar(42)(1,3,7,5);
+segchar(43)(2,7,3);
+segpoint(44)(9);
+segchar(45)(7);
+segpoint(46)(8);
+segchar(47)(2,7,5);
+segchar(48)(1,2,3,4,5,6);
+segchar(49)(5,6);
+segchar(50)(4,5,7,2,1);
+segchar(51)(4,5,7,6,1);
+segchar(52)(3,7,5,6);
+segchar(53)(4,3,7,6,1);
+segchar(54)(4,3,7,6,1,2);
+segchar(55)(4,5,6);
+segchar(56)(1,2,3,4,5,6,7);
+segchar(57)(1,6,5,4,3,7);
+segchar(58)(1,8);
+segchar(59)(1,9);
+segchar(60)(4,3,7);
+segchar(61)(4,7);
+segchar(62)(4,5,7);
+segchar(63)(4,5,8);
+segchar(64)(3,4,5,7,1,2);
+segchar(65)(2,3,4,5,6,7);
+segchar(66)(3,2,1,6,7);
+segchar(67)(1,2,3,4);
+segchar(68)(1,2,5,6,7);
+segchar(69)(1,2,3,4,7);
+segchar(70)(2,3,4,7);
+segchar(71)(1,2,3,4,6);
+segchar(72)(2,3,5,6,7);
+segchar(73)(2,3);
+segchar(74)(1,5,6);
+segchar(75)(1,2,3,5,7);
+segchar(76)(1,2,3);
+segchar(77)(2,3,4,6,7);
+segchar(78)(2,3,4,5,6);
+segchar(79)(1,2,7,6);
+segchar(80)(2,3,4,5,7);
+segchar(81)(3,4,5,6,7);
+segchar(82)(2,7);
+segchar(83)(4,3,7,6,1);
+segchar(84)(1,2,3,7);
+segchar(85)(1,2,3,5,6);
+segchar(86)(2,3,7,5);
+segchar(87)(1,2,3,5,6,7);
+segchar(88)(4,2,7,6);
+segchar(89)(3,5,6,1);
+segchar(90)(4,5,7,2,1);
+segchar(91)(4,3,2,1);
+segchar(92)(3,7,6);
+segchar(93)(4,5,6,1);
+segchar(94)(3,4,5);
+segchar(95)(1,8);
+segchar(96)(3);
+segchar(97)(2,3,4,5,6,7);
+segchar(98)(3,2,1,6,7);
+segchar(99)(1,2,7);
+segchar(100)(1,2,5,6,7);
+segchar(101)(1,2,3,4,7);
+segchar(102)(2,3,4,7);
+segchar(103)(1,2,3,4,6);
+segchar(104)(2,3,5,6,7);
+segchar(105)(2,3);
+segchar(106)(1,5,6);
+segchar(107)(1,2,3,5,7);
+segchar(108)(1,2,3);
+segchar(109)(2,3,4,6,7);
+segchar(110)(2,3,4,5,6);
+segchar(111)(1,2,7,6);
+segchar(112)(2,3,4,5,7);
+segchar(113)(3,4,5,6,7);
+segchar(114)(2,7);
+segchar(115)(4,3,7,6,1);
+segchar(116)(1,2,3,7);
+segchar(117)(1,2,3,5,6);
+segchar(118)(2,3,7,5);
+segchar(119)(1,2,3,5,6,7);
+segchar(120)(4,2,7,6);
+segchar(121)(3,5,6,1);
+segchar(122)(4,5,7,2,1);
+segchar(123)(4,3,2,1);
+segchar(124)(3,2);
+segchar(125)(4,5,6,1);
+segchar(126)(3,5);
+bye.
+
+

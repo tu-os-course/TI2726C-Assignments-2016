@@ -20,7 +20,7 @@ You can start typing the username nonetheless.
 
 ## Linux
 
-In linux there are 2 primary of working with the PI over UART:
+In linux there are 2 primary methods of working with the PI over UART:
 
 - Open a tty directly using `screen /dev/ttyUSB0 115200`.
   This will drop you in a linux bash shell where you can login and use all shell features.

@@ -1,0 +1,146 @@
+\chapter[Session 1: Introduction to C and Processes]{Introduction to C and Processes}\label{chap:session1}
+\chaptermark{Introduction to C and Processes}
+In previous classes you all have had classes that utilised C as a programming language. This first lab session is used to get to know the environment you will be working with as well as compiling the code you will be going to write.
+
+The objectives of this session are listed below.
+	\begin{itemize}
+		\item Become familiar with the Raspberry Pi
+		\item Write some simple C programs
+		\item Learn how to compile a C program
+		\item Learn what a process is and what it does
+	\end{itemize}
+
+\section{Assignments}
+This first lab session consist of 3 assignments. In these assignments you have to write different programs which will be executed on the Raspberry Pi.
+
+Early computers allowed only one program to be executed at a time. This program had complete control of the system and had access to all the system’s resources. In contrast, contemporary computer systems allow multiple programs to be loaded into memory and executed concurrently. The later case requires you to write a program, compile it and finally run it on a computer as a process. A process it a program that is in execution.Your program becomes a process of the Linux operating system. You could use the command \code{ps} in the console screen to list all the current processes of the system. 
+
+\begin{info}
+To make it easier to assess your assignments you have to write them in different files and you have to write enough comments in your code. We will assess you accordingly!
+\end{info}
+
+\subsection*{Assignment 1.1}
+For the first assignment you have to write a small program. The file with the code of the program must uploaded to the Raspberry Pi followed by a compilation of your code to get the actual program. Once you have performed the compiling step, you could run the program. The program you have to write has some simple objectives which are listed below. Keep in mind that when this program runs on the Raspberry Pi it has become a process of the Linux Operating System.
+	\begin{objectives}
+		Objectives for a correct implementation of Assignment 1.1
+		\begin{itemize}[noitemsep]
+			\item Create variables with your name and student number
+			\item Make sure your program is able to print your name and student number in an organised way!
+			\item Print the ID of the process that runs your program!
+		\end{itemize}
+	\end{objectives}
+Once your implementation complies with these objectives, you have to upload your solution to the Raspberry Pi and compile it with the GCC compiler of the Raspberry Pi. You could use a makefile for the compilation step which should make it easier to compile it again. When you run this program multiple times you will see that it gets a different process ID each time you run the program. Explain why this is the case.\\
+\signature
+
+\subsection*{Assignment 1.2}
+In this assignment you have to write a program that is able to execute commands that you will usually use in your command window. The objective of this task is to become familiar with two different ways of executing Linux commands within a C program. For this assignment you have to write a program that creates a folder in the folder where your program is executed and you have to execute the function to list all the files and directories in the current folder. 
+	\begin{objectives}
+		Objectives for a correct implementation of Assignment 1.2
+		\begin{itemize}[noitemsep]
+			\item Create a folder
+			\item List all files and directories in the current directory
+			\item Use 2 different functions to realise the above objectives
+		\end{itemize}
+	\end{objectives}
+	\signature
+
+\subsection*{Assignment 1.3}
+In the previous two assignments you wrote a program which was executed as a process on the Raspberry Pi. In assignment 1.3 you will extend assignment 1.2 with the functionality to run another process. This so called "child" process has to execute the same code as the main program. The objectives of this assignment are also listed below.
+	\begin{objectives}
+		Objectives for a correct implementation of Assignment 1.3
+		\begin{itemize}[noitemsep]
+			\item Create a "child" process which runs the same code as the main program
+			\item Create a if/else statement to print which process is active (child or parent)
+			\item The parent process has to wait for the child process before it is finished
+		\end{itemize}
+	\end{objectives}
+	\signature
+
+\section{Bonus Question: UNIX Shell and History Feature}
+This project consists of designing a C program to serve as a shell interface that accepts user commands and then executes each command in a separate process. This project can be completed on any Linux, UNIX, or Mac OS X system.
+A shell interface gives the user a prompt, after which the next command is entered. The example below illustrates the prompt osh> and the user’s next command: \code{cat prog.c}. (This command displays the file prog.c on the terminal using the UNIX cat command.)
+\begin{flushleft}
+    \code{osh> cat prog.c}
+\end{flushleft}
+
+One technique for implementing a shell interface is to have the parent process first read what the user enters on the command line (in this case, cat prog.c), and then create a separate child process that performs the command. Unless otherwise specified, the parent process waits for the child to exit before continuing. However, UNIX shells typically also allow the child process to run in the background, or concurrently. To accomplish this, we add an ampersand (\&) at the end of the command. Thus, if we rewrite the above command as
+
+\begin{flushleft}
+    \code{osh> cat prog.c \&}
+\end{flushleft}
+
+the parent and child processes will run concurrently.
+The separate child process is created using the \code{fork()} system call, and the user's command is executed using one of the system calls in the \code{exec()} family.
+A C program that provides the general operations of a command-line shell is supplied below. The \code{main()} function presents the prompt \code{osh->} and outlines the steps to be taken after input from the user has been read. The \code{main()} function continually loops as long as should run equals 1; when the user enters exit at the prompt, your program will set should run to 0 and terminate.
+This project is organised into two parts: (1) creating the child process and executing the command in the child, and (2) modifying the shell to allow a history feature.
+\begin{lstlisting}
+#include <stdio.h>
+#include <unistd.h>
+
+#define MAX_LINE 80 /* The maximum length command */
+
+int main(void) {
+   char *args[MAX_LINE/2 +1]; /* command line arguments */
+   int should_run = 1; /* flag to determine when to exit program */
+   
+   while (should_run) {
+      printf("osh>");
+      fflush(stdout);
+      
+      /**
+       * After reading user input, the steps are:
+       * (1) fork a child process using fork()
+       * (2) the child process will invoke execvp()
+       * (3) if command included &, parent will invoke wait()
+       */
+    }
+    
+    return 0;
+}
+\end{lstlisting}
+
+\subsection*{Part 1: Creating a Child Process}
+The first task is to modify the \code{main()} function as mentioned above so that a child process is forked and executes the command specified by the user. This will require parsing what the user has entered into separate tokens and storing the tokens in an array of character strings. For example, if the user enters the command \code{ps -ael} at the \code{osh>} prompt, the values stored in the args array are:
+\begin{flushleft}
+args[0] = ``ps''\\
+args[1] = ``-ael''\\
+args[2] = NULL
+\end{flushleft}
+
+This args array will be passed to the \code{execvp()} function, which has the following prototype:
+\begin{flushleft}
+\code{execvp(char *command, char *params[]);}
+\end{flushleft}
+
+Here, command represents the command to be performed and params stores the parameters to this command. For this project, the \code{execvp()} function should be invoked as \code{execvp(args[0], args)}. Be sure to check whether the user included an \& to determine whether or not the parent process is to wait for the child to exit.
+
+\subsection*{Part 2: Creating a History Feature}
+The next task is to modify the shell interface program so that it provides a history feature that allows the user to access the most recently entered commands. The user will be able to access up to 10 commands by using the feature. The commands will be consecutively numbered starting at 1, and the numbering will continue past 10. For example, if the user has entered 35 commands, the 10 most recent commands will be numbered 26 to 35.
+The user will be able to list the command history by entering the command
+\begin{flushleft}
+\code{history}
+\end{flushleft}
+at the \code{osh>} prompt. As an example, assume that the history consists of the commands (from most to least recent):
+\begin{flushleft}
+\code{ps, ls -l, top, cal, who, date} 
+\end{flushleft}
+The command history will output:\\
+\code{
+     6 ps\\
+     5 ls -l\\
+     4 top\\
+     3 cal\\
+     2 who\\
+     1 date\\
+     }
+Your program should support two techniques for retrieving commands from the command history:
+\begin{objectives}
+\begin{itemize}[noitemsep]
+\item When the user enters !!, the most recent command in the history is executed.
+\item When the user enters a single ! followed by an integer N, the Nth command in the history is executed.
+\end{itemize}
+
+Continuing our example from above, if the user enters !!, the ps command will be performed; if the user enters !3, the command cal will be executed. Any command executed in this fashion should be echoed on the user’s screen. The command should also be placed in the history buffer as the next command.
+The program should also manage basic error handling. If there are no commands in the history, entering !! should result in a message ``No commands in history.'' If there is no command corresponding to the number entered with the single !, the program should output ``No such command in history.''
+\end{objectives}
+\signature

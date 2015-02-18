@@ -1,0 +1,211 @@
+% X. van Rijnsoever, 2014
+\ProvidesPackage{manual}
+
+\RequirePackage{ifthen}				% For the environments
+\RequirePackage{calc}				% For the environments
+\RequirePackage{array}				% For the tabalar option "m", used in the environments
+\RequirePackage{graphicx}			% For inclusion of the images in the environments
+\RequirePackage{xcolor}				% For the gray color of the environments
+\RequirePackage{forloop}			% answers can take multiple lines
+\RequirePackage{babel}
+\RequirePackage{iflang}				% babel support
+\RequirePackage{adjustbox}
+\RequirePackage{enumerate}
+
+\definecolor{light-gray}{gray}{0.75}
+\definecolor{comment-green}{rgb}{0,0.4,0}
+
+\RequirePackage[noindentafter]{titlesec}
+\RequirePackage{titletoc}
+
+\RequirePackage{listings}			% Used to include VHDL-code and fragments
+
+\lstset{	numbers		= left,			%
+		numberstyle	= \tiny,		%
+		numbersep	= 5pt,			%
+		language	= C,			%
+		breaklines	= true,			%
+		showspaces	= false,		%
+		commentstyle=\color{comment-green}, %
+		keywordstyle=\color{blue}, %
+		backgroundcolor=\color{light-gray}, %\
+		%linewidth=0.9\textwidth, %
+		showstringspaces= false}
+
+%
+% Commands for general settings:
+%
+
+% The set-commands
+\newcommand{\subtitle}[1]{\def\@subtitle{#1}}
+\newcommand{\coursecode}[1]{\def\@coursecode{#1}}
+\newcommand{\coursename}[1]{\def\@coursename{#1}}
+\newcommand{\version}[1]{\def\@version{#1}}
+\newcommand{\downloadlocation}[1]{\def\@downloadlocation{#1}}
+
+% The print-commands
+\newcommand{\printauthor}{\@author}
+\newcommand{\printtitle}{\@title}
+\newcommand{\printsubtitle}{\@subtitle}
+\newcommand{\printversion}{\@version}
+\newcommand{\printcoursecode}{\@coursecode}
+\newcommand{\printcoursename}{\@coursename}
+\newcommand{\printdownloadlocation}{\@downloadlocation}
+
+%
+% Simple macros
+%
+\newcommand{\signal}[1]{\textit{{#1}}}		% use for signals
+\newcommand{\menu}[1]{\textbf{\textsf{#1}}}		% use for text in a program (menu-entries, text on buttons etc)
+\newcommand{\file}[1]{\texttt{#1}}		% use for filenames and directory-names
+\newcommand{\code}[1]{\texttt{#1}}		% use for pieces of code in the body-text
+\newcommand{\device}[1]{\texttt{\textsc{#1}}}	% Use for buttons, connectors etc. on physical machines (oscilloscope, signalgenerator etc)
+
+% Answers:
+
+
+% Babel support answers
+\newcommand{\@textAnswer}{%
+	\IfLanguageName{dutch}{%
+		{Antwoord:}%
+	}{%
+		{Answer:}%
+	}
+}
+
+
+\newcounter{@answerlinecounter}
+\newcommand{\drawanswerline}[1][]{\\[5mm]\@textAnswer\rule{\linewidth-\widthof{\@textAnswer}}{0.3pt}\ifthenelse{\equal{#1}{}}{}{%
+\forloop{@answerlinecounter}{1}{\value{@answerlinecounter} < #1}{\\[5mm]\rule{\linewidth}{0.3pt}}}}
+
+
+%
+% The environments:
+%
+
+% Environment for objectives
+
+% Babel support objectives:
+\newcommand{\@textObjectives}{%
+	\IfLanguageName{dutch}{%
+		Leerdoelen%
+	}{%
+		Objectives%
+	}
+}
+
+\newenvironment{objectives}{%
+	\noindent
+	\begin{center}
+		\adjustbox{minipage=0.9\textwidth,margin=1.5ex,bgcolor=light-gray}
+			\bgroup
+				\Large\textbf{\@textObjectives}\\~\\\normalsize
+			}{%
+			\egroup
+	\end{center}
+}
+
+% Environment for hints
+\newenvironment{hint}[1][]{%
+	\bigskip%
+	\begin{lrbox}{\@tempboxa}\begin{minipage}{\columnwidth}
+	\begin{tabular*}{\textwidth}{@{}m{1.5cm}@{\hspace{1mm}}m{\textwidth-1.6cm}@{}}%
+		\center\includegraphics[height=1cm]{images/icon_hint}&{\textbf{#1}}\ifthenelse{\equal{#1}{}}{}{\par}}%
+	{\end{tabular*}\end{minipage}\end{lrbox}%
+	\noindent\colorbox{gray!35}{\usebox{\@tempboxa}\bigskip}
+}
+
+% Environment for warnings
+\newenvironment{warning}[1][]{%
+	\bigskip%
+	\begin{lrbox}{\@tempboxa}\begin{minipage}{\columnwidth}%
+	\begin{tabular*}{\textwidth}{@{}m{1.5cm}@{\hspace{1mm}}m{\textwidth-1.6cm}@{}}%
+		\center\includegraphics[height=1cm]{images/icon_warning}&{\textbf{#1}}\ifthenelse{\equal{#1}{}}{}{\par}}%
+	{\end{tabular*}\end{minipage}\end{lrbox}%
+	\noindent\colorbox{gray!35}{\usebox{\@tempboxa}\bigskip}
+}
+
+\newenvironment{info}[1][]{%
+	\noindent
+	\begin{center}
+		\adjustbox{minipage=0.9\textwidth,margin=1.5ex,bgcolor=light-gray}
+			\bgroup
+				\begin{tabular*}{\textwidth}{@{}m{1.5cm}@{\hspace{1mm}}m{\textwidth-1.6cm}@{}}%
+					\center\includegraphics[height=1cm]{images/icon_info}&{\textbf{#1}}\ifthenelse{\equal{#1}{}}{}{\par}
+	
+			}{%
+				\end{tabular*}
+			\egroup
+	\end{center}
+}
+% Environment for additional information
+%\newenvironment{info}[1][]{%
+	%\bigskip%
+	%\begin{lrbox}{\@tempboxa}\begin{minipage}{\columnwidth}%
+	%\begin{tabular*}{\textwidth}{@{}m{1.5cm}@{\hspace{1mm}}m{\textwidth-1.6cm}@{}}%
+		%\center\includegraphics[height=1cm]{images/icon_info}&{\textbf{#1}}\ifthenelse{\equal{#1}{}}{}{\par}}%
+	%{\end{tabular*}\end{minipage}\end{lrbox}%
+	%\noindent\colorbox{gray!35}{\usebox{\@tempboxa}\bigskip}
+%}
+
+% Environment for additional Windows information
+\newenvironment{windows}[1][]{%
+	\bigskip%
+	\begin{lrbox}{\@tempboxa}\begin{minipage}{\columnwidth}%
+	\begin{tabular*}{\textwidth}{@{}m{1.5cm}@{\hspace{1mm}}m{\textwidth-1.6cm}@{}}%
+		\center\includegraphics[height=1cm]{images/icon_windows}&{\textbf{#1}}\ifthenelse{\equal{#1}{}}{}{\par}}%
+	{\end{tabular*}\end{minipage}\end{lrbox}%
+	\noindent\colorbox{gray!35}{\usebox{\@tempboxa}\bigskip}
+}
+
+% Environment for additional Linux information
+\newenvironment{linux}[1][]{%
+	\bigskip%
+	\begin{lrbox}{\@tempboxa}\begin{minipage}{\columnwidth}%
+	\begin{tabular*}{\textwidth}{@{}m{1.5cm}@{\hspace{1mm}}m{\textwidth-1.6cm}@{}}%
+		\center\includegraphics[height=1cm]{images/icon_linux}&{\textbf{#1}}\ifthenelse{\equal{#1}{}}{}{\par}}%
+	{\end{tabular*}\end{minipage}\end{lrbox}%
+	\noindent\colorbox{gray!35}{\usebox{\@tempboxa}\bigskip}
+}
+
+\newenvironment{codeblock}{%
+	\noindent
+	\begin{center}
+		\adjustbox{minipage=0.9\textwidth,margin=1.5ex,bgcolor=light-gray}
+			\bgroup
+			}{%
+				
+			\egroup
+	\end{center}
+}
+
+\newcommand{\signature}{
+\noindent
+\includegraphics[height=1.5cm,right]{images/signature.png}
+}
+%
+% The font-commands:
+%
+
+% Commands for segment-code fonts
+%\newfont{\segmentfont}{d7seg scaled 800}
+%\newcommand{\textsegment}[1]{{\segmentfont{#1}}}
+
+%% A part title starts with a huge (96pt) bold black number, flushed to the
+%% right, followed by the part name on the next line in the title color.
+%\titleformat{\part}[display]
+    %{\flushright\titlestyle}
+    %{\fontsize{96pt}{96pt}\selectfont\bfseries\thepart}
+    %{0pt}
+    %{\Huge\color{black}}
+		%%\put( 1, 13){\color{cyan}\linethickness{2cm}\line(0,1){7}}
+%\AddToShipoutPicture*{
+	%\setlength{\unitlength}{1cm}
+	%\put( 10, 13){\color{cyan}\linethickness{6cm}\line(0,1){7}}
+	%\put( 0.5, 13.5){\rotatebox{90}{\color{white}\large\textsf{Facluty of Electrical}}}
+%}
+%% Separate the title from the text by two empty lines.
+%\titlespacing{\part}{1pt}{1pt}{2\baselineskip}
+%% In the table of contents, the part name is preceded by an empty line, printed
+%% in bold, and not followed by a line of dots.
+%\dottedcontents{part}[1.5em]{\vspace{\baselineskip}\bfseries}{3em}{0pc}	
