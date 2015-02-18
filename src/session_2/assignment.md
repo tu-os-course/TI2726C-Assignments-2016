@@ -17,7 +17,7 @@ heavyweight) process has a single thread of control. If a process has multiple t
 it can perform more than one task at a time. Since each unique thread has its own memory, it is
 a lot faster to create and destroy threads.
 
-![threading](images/thread.pdf)
+![threading](./images/thread.pdf)
 
 In this session you will learn how to create threads. The concept of threads will be further
 utilised by all the other assignments of this lab. The next session is about multithreading and the
@@ -144,7 +144,7 @@ One suggested strategy is to create threads that check the following criteria:
 - A thread to check that each row contains the digits 1 through 9
 - Nine threads to check that each of the 3 × 3 subgrids contains the digits 1 through 9
 
-![Sudoku](images/sudoku.pdf)
+![Sudoku](./images/sudoku.pdf)
 
 This would result in a total of eleven separate threads for validating a Sudoku puzzle. However, you
 are welcome to create even more threads for this project. For example, rather than creating one
