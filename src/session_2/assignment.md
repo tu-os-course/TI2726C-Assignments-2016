@@ -104,21 +104,21 @@ library in order to create a thread in your main function. The only thing you ha
 your main function is the creation of a thread, waiting for the thread to finish and killing the
 program.
 
-#### objectives
+The objectives are:
 
 - The main function must create a thread, wait till the thread is finished and
   finally close the program.
 - Print the thread ID and function name of the thread
 - Create a counter which counts from 1 to 10 and wait 1 second between each increment
 
-### Assignment 2.2
+### 2.2
 
 In this assignment you will - just as in assignment 2.1 - create a thread. Basically the same main
 functions can be used. However, instead of using a timer you will use the input/output port of the
 Raspberry Pi. In this assignment you have to use the output function of this port to blink multiple
-LED's. The objectives of this assignment are listed in the grey box below.
+LED's.
 
-####
+The objectives are:
 
 - The main function must create a thread, wait till the thread is finished and finally close the
   program.
@@ -130,7 +130,7 @@ The pattern named above may be every pattern you like!
 It could be some difficult pattern or just simple blinking of LED's
 You will receive recognition for making it blink to the rhythm of "You & Me - Flume Remix".
 
-### Bonus Question: Sudoku Solution Validator
+### Bonus: Sudoku Solution Validator
 
 A Sudoku puzzle uses a 9 × 9 grid in which each column and row, as well as each of the nine
 3 × 3 subgrids, must contain all of the digits 1···9. The next figure presents an example of

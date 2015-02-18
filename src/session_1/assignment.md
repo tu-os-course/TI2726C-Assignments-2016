@@ -39,7 +39,7 @@ program. The program you have to write has some simple objectives which are list
 mind that when this program runs on the Raspberry Pi it has become a process of the Linux Operating
 System.
 
-#### Objectives
+The objectives are:
 
 1. Create variables with your name and student number
 2. Make sure your program is able to print your name and student number in an organised way
@@ -67,7 +67,7 @@ For this assignment you have to write a program that creates a folder in
 the folder where your program is executed and you have to execute the function to
 list all the files and directories in the current directory.
 
-#### Objectives
+The objectives are:
 
 1. Create a folder
 2. List all files and directories in the current directory
@@ -84,7 +84,7 @@ process on the Raspberry Pi.
 In assignment 1.3 you will extend assignment 1.2 with the functionality to run another process.
 This so called "child" process has to execute the same code as the main program.
 
-#### Objectives
+The objectives are:
 
 1. Create a "child" process which runs the previous assignment's functionality.
 2. Create a if/else statement to print which process is active (child or parent)
