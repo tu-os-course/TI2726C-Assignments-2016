@@ -1,6 +1,4 @@
-# Session 1
-
-## Introduction to C and Processes
+# Session 1: Introduction to C and Processes
 
 In this session you will:
 
