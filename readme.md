@@ -14,6 +14,8 @@ You can either clone the repository to your machine:
     
 or [download the zip](https://github.com/tu-os-course/assignments/archive/master.zip).
 
+If you want to learn git, [start here](https://try.github.io/levels/1/challenges/1).
+
 Do **make sure** that although you're free to clone the repository, you should **NOT** publish your solutions to Github ofcourse.
 **No spoilers!**.
 
