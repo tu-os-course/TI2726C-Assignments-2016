@@ -19,6 +19,11 @@ If you want to learn git, [start here](https://try.github.io/levels/1/challenges
 Do **make sure** that although you're free to clone the repository, you should **NOT** publish your solutions to Github ofcourse.
 **No spoilers!**.
 
+## Handing in
+
+You 're only expected to hand in a single C file, namely the one as given in the template solution.
+As such, you should **not** depend on any changes you make to the makefile, as we will compile it against the makefile as is.
+
 ## Contributing
 
 If you spot mistakes: feel free to
