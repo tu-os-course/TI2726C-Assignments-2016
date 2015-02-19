@@ -8,7 +8,10 @@ The repository contains frames for every assignment solution as well as the assi
 You can either clone the repository to your machine:
 
     git clone https://github.com/tu-os-course/assignments.git
-
+    
+    # to update the repository (only possible if you do not have local changes)
+    git pull origin master
+    
 or [download the zip](https://github.com/tu-os-course/assignments/archive/master.zip).
 
 Do **make sure** that although you're free to clone the repository, you should **NOT** publish your solutions to Github ofcourse.
