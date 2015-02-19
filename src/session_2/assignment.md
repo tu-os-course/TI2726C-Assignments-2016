@@ -29,8 +29,7 @@ This tutorial will state information with regards to the input/output (I/O) func
 Raspberry Pi. To make it easy, we will use a library which provides a set of functions to
 communicate with the I/O pins of the Raspberry Pi. This lab will use the Wiring Pi library. This
 tutorial will mention the basic functions you have to use during this lab. If you want to use more
-advanced functions you could find a detailed reference on the website of WiringPi
-\url{http://www.wiringpi.com/reference}
+advanced functions you could find a detailed reference on the [website of WiringPi](http://www.wiringpi.com/reference, "Click Here")
 
 Before using the WiringPi I/O library, you need to include its header file in your programs:
 
