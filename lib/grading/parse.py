@@ -28,9 +28,10 @@ def parse_status(status):
 def parse_overview(html):
   for tr in html.find('table', attrs={'class':'overview'}).find_all('tr')[3:]:
     student = tr\
-        .find('td', {'class':'overviewLeft'})\
-        .find_all('a')[-1]\
-        .text
+      .find('td', {'class':'overviewLeft'})\
+      .text
+
+    student = re.sub(r"[ \-\n]{1,}", '_', student.strip(), re.M).lower()
 
     assignments = map(
       lambda x: (x.a.attrs.get("href"), parse_status(x.a.attrs.get("class"))),
