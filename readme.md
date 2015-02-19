@@ -11,6 +11,9 @@ You can either clone the repository to your machine:
 
 or [download the zip](https://github.com/tu-os-course/assignments/archive/master.zip).
 
+Do **make sure** that although you're free to clone the repository, we expect you not to publish your solutions to Github yourself.
+**No spoilers!**.
+
 ## Contributing
 
 If you spot mistakes: feel free to
