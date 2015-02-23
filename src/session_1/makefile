@@ -1,5 +1,8 @@
 CC=gcc
 CFLAGS=-Wall -O0
 
+SOURCES=$(wildcard *.c)
+BINS=$(SOURCES:.c=)
+
 clean:
-	@-rm *.o *.a
+	$(RM) *.o *.a $(BINS)
