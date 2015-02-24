@@ -48,6 +48,14 @@ The first thing you have to do is to call the function `wiringPiSetup()`.
 
     // Setup WiringPi
     wiringPiSetup();
+ 
+You also have to define the constants for the LED output pins (these can be found in the processor manual):
+
+    // define led output pins
+    #define LED1 7
+    #define LED2 0
+    #define LED3 2
+    #define LED4 3
 
 Now you are all set to set the mode of the pins.
 Each pin can be set to several modes and therefor you have to select the right one in order to
