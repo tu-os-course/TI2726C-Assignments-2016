@@ -1,6 +1,9 @@
 CC=gcc
 CFLAGS=-Wall -O0 -I/usr/local/include
-LFLAGS=-L/usr/local/lib -lwiringPi
+LDFLAGS=-L/usr/local/lib -lwiringPi -lpthread
+
+SOURCES=$(wildcard *.c)
+BINS=$(SOURCES:.c=)
 
 clean:
-	-rm -f *.o *.a 2_1 2_2 2_bonus
+	$(RM) *.o *.a $(BINS)
