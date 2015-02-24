@@ -4,3 +4,13 @@
 *.out
 *.synctex.gz
 *.toc
+
+# Assignments ignore
+src/session_1/1_1
+src/session_1/1_2
+src/session_1/1_3
+src/session_1/1_bonus
+
+src/session_2/2_1
+src/session_2/2_2
+src/session_2/2_bonus
