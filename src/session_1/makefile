@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -O0
+CFLAGS=-Wall -O0 -std=gnu99 
 
 SOURCES=$(wildcard *.c)
 BINS=$(SOURCES:.c=)
