@@ -53,9 +53,9 @@ This assignment has a similar approach. The objectives of this assignment are li
 ### 3.3
 
 Write a multi-threaded program that calculates various statistical values for a list of numbers.
-This program will be passed a series of numbers on the command line and will then create three
+This program will be passed a series of numbers on the command line and will then create five
 separate worker threads. One thread will determine the average of the numbers, the second will
-determine the maximum value, and the third will determine the minimum value. For example, suppose
+determine the maximum value, the third will determine the minimum value, the forth the median and the last the standard deviation. For example, suppose
 your program is passed the integers:
 
     90 81 78 95 79 72 85
