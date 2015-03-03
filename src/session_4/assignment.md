@@ -42,11 +42,11 @@ By far the simplest CPU-scheduling algorithm is the first-come, first-served (FC
     The objectives are:
 
     - Implement FCFS as scheduling algorithm.
-    - Beeing able to explain in detail the difference between FCFS and other scheduling algorithms!
+    - Being able to explain in detail the difference between FCFS and other scheduling algorithms!
 
 ### Bonus Questions
 
-Below you will find three questions. If you answer all these questions correctly, you will be rewarded a bonus! Draft an essay with a maximum length of 1 page (single sided). Your essay should exists of three sections, each section covering a question. Furthermore, you should **clearly explain** why your answer is the correct one and why the others are incorrect. **Plagiarism checks will be conducted!**
+Below you will find three questions. If you answer all these questions correctly, you will be rewarded a bonus! Draft an essay that consists of a title page and **one** page for the answers to the questions. Your essay should exists of three sections, each section covering a question. You can use `4_bonus.tex` as a template for your solutions. This file can be compiled with Latex. Furthermore, you should **clearly explain** why your answer is the correct one and why the others are incorrect. **Plagiarism checks will be conducted!**
 
 #### Question 1
 
