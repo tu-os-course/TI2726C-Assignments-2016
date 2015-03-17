@@ -31,18 +31,19 @@ Use your your solution to assignment 3.2 and change the scheduling method. The t
 
     The objectives are:
 
-    - Implement Round-Robin as scheduling algorithm.
-    - Prove that priorities change when implementing RR.
-
-
+    - Update your 3.2 solution to use round-robin to schedule work
+    - Investigate the influence of priorities of the threads under RR
 
 ### 4.2
 By far the simplest CPU-scheduling algorithm is the first-come, first-served (FCFS) scheduling algorithm. With this scheme, the process that requests the CPU first is allocated the CPU first. The implementation of the FCFS policy is easily managed with a FIFO queue. This assignment has the same objectives as assignment 4.1. The only difference is that you will be utilising the FCFS scheduling algorithm as apposed to the Round-Robin scheduling algorithm.
 
     The objectives are:
 
-    - Implement FCFS as scheduling algorithm.
+    - Write an implementation of FCFS to influence your threads. You are *not* allowed to use the pthread FIFO 
+      scheduler for this assignment.
     - Being able to explain in detail the difference between FCFS and other scheduling algorithms!
+
+If you plan on using the pthread library for this, make sure you study the examples in the man page for scheduling carefully.
 
 ### Bonus Questions
 
