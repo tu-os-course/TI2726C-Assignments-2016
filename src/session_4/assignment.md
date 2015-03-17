@@ -9,6 +9,19 @@ In the previous sessions you have learnt what a thread is, how to create one and
 
 ![schedule](./images/schedule.png)
 
+### Hint!!
+
+When testing scheduling you want to make sure to use a **blocking delay** function, rather than the stdlib `sleep`
+function.
+When a thread sleeps, the scheduler will switch to another thread.
+In this assignment that means that you won't be able to observe easily the differences between different schedulers.
+A straightforward way to do this is (thanks to jouweneel, from whom I took this snippet):
+
+    void blocking_delay(unsigned int s) {
+        time_t now = time(0);
+        while (time(0) < now + s) {};
+    }
+
 ## Assignments
 
 In a single-processor system, only one process can run at a time. Others must wait until the CPU is free and can be rescheduled. The objective of multiprogramming is to have some process running at all times, to maximise CPU utilisation. The idea is relatively simple. A process is executed until it must wait, typically for the completion of some I/O request. In a simple computer system, the CPU then just sits idle. All this waiting time is wasted; no useful work is accomplished. With multiprogramming, we try to use this time productively.
