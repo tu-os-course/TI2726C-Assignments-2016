@@ -43,6 +43,8 @@ In Assignment 5.1 you have created a counter that ends at 5. In this assignment 
     to 15 and then counts back to 5. To realise this behaviour you have to use 
     mutexes (Chapter 5.5 in your book). You must be able to explain the working 
     principle of mutexes.
+    
+    The current value of the counter always be shown on the leds.
 
     
 ### 5.3
@@ -55,6 +57,8 @@ Another method of implementing Assignment 5.2 such that the counter increments t
     15 and then counts back to 5. To realise this behaviour you have to use 
     semaphores (Chapter 5.6 in your book). You must be able to explain the 
     working principle of semaphores.
+    
+    The current value of the counter always be shown on the leds.
     
 ### 5.4
 
