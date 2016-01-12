@@ -22,21 +22,21 @@ write different programs which will be executed on the Raspberry Pi.
 Early computers allowed only one program to be executed at a time. This
 program had complete control of the system and had access to all the system’s
 resources. In contrast, contemporary computer systems allow multiple programs
-to be loaded into memory and executed concurrently. The later case requires you
-to write a program, compile it and finally run it on a computer as a process. A
-process it a program that is in execution. Your program becomes a process of the
-Linux operating system. You could use the command `ps` in the console screen to
+to be loaded into memory and executed concurrently. The latter case requires you
+to write a program, compile it, and finally run it on a computer as a process. A
+process it a program in execution. Your program becomes a process of the
+Linux operating system. You can use the command `ps` in the console screen to
 list all the current processes of the system.
 
-We will assess both functionality and the clarity of your code and comments.
+We will assess both the functionality and the clarity of your code and comments.
 
 ### 1.1
 
 For the first assignment you have to write a small program.
-The file with the code of the program must uploaded to the Raspberry Pi followed by a compilation of
-your code to get the actual program. Once you have performed the compiling step, you could run the
+The file with the code of the program must be uploaded to the Raspberry Pi followed by a compilation of
+your code to get the actual program. Once you have performed the compiling step, you can run the
 program. The program you have to write has some simple objectives which are listed below. Keep in
-mind that when this program runs on the Raspberry Pi it has become a process of the Linux Operating
+mind that when this program runs on the Raspberry Pi, it has become a process of the Linux Operating
 System.
 
 The objectives are:
@@ -49,7 +49,7 @@ Once your implementation complies with these objectives, you have to upload your
 solution to the Raspberry Pi and compile it with the GCC compiler of the Raspberry
 Pi.
 
-You could use the makefile for the compilation step which should make it easier to compile it again.
+You can use the makefile for the compilation step which should make it easier to compile it again.
 
 You should understand:
 
@@ -64,7 +64,7 @@ The objective of this task is to become familiar with two different ways of exec
 within a C program.
 
 For this assignment you have to write a program that creates a folder in
-the folder where your program is executed and you have to execute the function to
+the folder where your program is executed, and you have to execute the function to
 list all the files and directories in the current directory.
 
 The objectives are:
@@ -87,5 +87,5 @@ This so called "child" process has to execute the same code as the main program.
 The objectives are:
 
 1. Create a "child" process which runs the previous assignment's functionality.
-2. Create a if/else statement to print which process is active (child or parent)
+2. Create an if/else statement to print which process is active (child or parent)
 3. The parent process has to wait for the child process to finish
