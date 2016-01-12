@@ -17,12 +17,12 @@ or [download the zip](https://github.com/tu-os-course/assignments/archive/master
 If you want to learn git, [start here](https://try.github.io/levels/1/challenges/1).
 
 Do **make sure** that although you're free to clone the repository, you should of course **NOT** publish your solutions to Github.
-**No spoilers!**.
+**No spoilers!**
 
 ## Handing in
 
-You're only expected to hand in a single C file, namely the one as given in the template solution.
-As such, you should **not** depend on any changes you make to the makefile, as we will compile it against the makefile as is.
+You're expected to hand in only a single C file, namely the one as given in the template solution.
+Your solution should **not** depend on any changes you make to the makefile, as we will compile it against the makefile as is.
 
 ## Contributing
 
