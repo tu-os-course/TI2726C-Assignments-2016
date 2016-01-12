@@ -1,11 +1,11 @@
 # Operating Systems Lab Work
 
-This is the labwork repository for the TU Delft CS - first year's Operating Systems course.
+This is the labwork repository of the second-year Operating Systems course (TI2726-C) of Delft University of Technology.
 The repository contains frames for every assignment solution as well as the assignments in markdown format.
 
 ## Getting the code
 
-You can either clone the repository to your machine:
+To get started, you can either clone the repository to your machine:
 
     git clone https://github.com/tu-os-course/assignments.git
     
@@ -16,12 +16,12 @@ or [download the zip](https://github.com/tu-os-course/assignments/archive/master
 
 If you want to learn git, [start here](https://try.github.io/levels/1/challenges/1).
 
-Do **make sure** that although you're free to clone the repository, you should **NOT** publish your solutions to Github ofcourse.
+Do **make sure** that although you're free to clone the repository, you should of course **NOT** publish your solutions to Github.
 **No spoilers!**.
 
 ## Handing in
 
-You 're only expected to hand in a single C file, namely the one as given in the template solution.
+You're only expected to hand in a single C file, namely the one as given in the template solution.
 As such, you should **not** depend on any changes you make to the makefile, as we will compile it against the makefile as is.
 
 ## Contributing
