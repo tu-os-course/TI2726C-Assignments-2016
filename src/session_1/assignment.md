@@ -68,16 +68,13 @@ The objectives are of your program are to:
 1. Create a folder
 2. List all files and directories in the current directory
 3. Accomplish the above by making use of:
-
   - The possibility to invoke shell functions from C
   - The fact that many shell functions are written in C and are available through `#include`
 
 ### 1.3
 
 In the previous two assignments you wrote a program which was executed as a
-process on the Raspberry Pi.
-
-In assignment 1.3 you will extend assignment 1.2 with the functionality to run another process.
+process on the Raspberry Pi. In this assignment you will extend assignment 1.2 with the functionality to run another process.
 This so called "child" process has to execute the same code as the main program.
 
 The objectives are of your program are to:
