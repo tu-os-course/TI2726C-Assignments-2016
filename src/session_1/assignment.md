@@ -7,7 +7,7 @@ In this session you will:
 - learn how to compile a C program,
 - learn what a process is and what it does.
 
-You can compile things using the make file included:
+You can compile your programs using the included make file:
 
     # for example to compile 1.1
     make 1_1
@@ -15,46 +15,42 @@ You can compile things using the make file included:
     # ... and to run it
     ./1_1
 
+We will assess both the functionality and the clarity of your code and comments.
+
 ## Assignments
 
-This first lab session consist of 3 assignments. In these assignments you have to
-write different programs which will be executed on the Raspberry Pi.
-Early computers allowed only one program to be executed at a time. This
-program had complete control of the system and had access to all the system’s
+Early computers allowed only one program to be executed at a time, which had complete control of the system and had access to all of the system's
 resources. In contrast, contemporary computer systems allow multiple programs
-to be loaded into memory and executed concurrently. The latter case requires you
-to write a program, compile it, and finally run it on a computer as a process. A
-process it a program in execution. Your program becomes a process of the
+to be executed concurrently, that is, to have multiple simultaneous processes. A
+process is a program in execution. A compiled and invoked program becomes a process of the
 Linux operating system. You can use the command `ps` in the console screen to
 list all the current processes of the system.
 
-We will assess both the functionality and the clarity of your code and comments.
 
 ### 1.1
 
 For the first assignment you have to write a small program.
 The file with the code of the program must be uploaded to the Raspberry Pi followed by a compilation of
-your code to get the actual program. Once you have performed the compiling step, you can run the
-program. The program you have to write has some simple objectives which are listed below. Keep in
+your code to get the actual program. Once you have performed the compilation step, you can run the
+program. The program you have to write has some simple objectives that are listed below. Keep in
 mind that when this program runs on the Raspberry Pi, it has become a process of the Linux Operating
 System.
 
-The objectives are:
+The objectives of your program are to:
 
 1. Create variables with your name and student number
-2. Make sure your program is able to print your name and student number in an organised way
+2. Print your name and student number in an organised way
 3. Print the ID of the process that runs your program
 
-Once your implementation complies with these objectives, you have to upload your
-solution to the Raspberry Pi and compile it with the GCC compiler of the Raspberry
+Once your implementation complies with these objectives, you have to upload it to the Raspberry Pi and compile it with the GCC compiler of the Raspberry
 Pi.
 
 You can use the makefile for the compilation step which should make it easier to compile it again.
 
 You should understand:
 
-- why the process id differs on each run
-- why we have to recompile the program on the Pi to run it there.
+- why the process id differs across different runs
+- why you have to recompile the program on the Pi to run it there.
 
 ### 1.2
 
@@ -67,7 +63,7 @@ For this assignment you have to write a program that creates a folder in
 the folder where your program is executed, and you have to execute the function to
 list all the files and directories in the current directory.
 
-The objectives are:
+The objectives are of your program are to:
 
 1. Create a folder
 2. List all files and directories in the current directory
@@ -84,8 +80,8 @@ process on the Raspberry Pi.
 In assignment 1.3 you will extend assignment 1.2 with the functionality to run another process.
 This so called "child" process has to execute the same code as the main program.
 
-The objectives are:
+The objectives are of your program are to:
 
-1. Create a "child" process which runs the previous assignment's functionality.
+1. Create a "child" process that runs the previous assignment's functionality.
 2. Create an if/else statement to print which process is active (child or parent)
-3. The parent process has to wait for the child process to finish
+3. Have the parent process wait for the child process to finish
