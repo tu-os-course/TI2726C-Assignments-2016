@@ -2,7 +2,7 @@
 
 In general, the easiest way of working with the Pi is to connect to it through the
 secure shell server running on it by default (ssh).
-But due to network limitations at TU Delft, we cannot.
+But due to network limitations at TU Delft, we cannot do this.
 As a consequence, we make use of the serial pins (UART) on the Pi B+ board.
 The possibilities depend a bit on your choice of operating system.
 
