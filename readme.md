@@ -35,4 +35,4 @@ If you spot mistakes: feel free to
 ## OS Enthusiast?
 
 If you want to become an OS hacker, you might want to take a look [at this repository](https://github.com/tu-os-course/bare-pi)
-as an inspiration.
+for inspiration.
