@@ -1,9 +1,9 @@
 # Session 2: Threads
 
-Session 2 of this lab contains some exercises about threads. In Session 1
+Session 2 of this lab contains several exercises about threads. In Session 1
 you learned about processes and how they work. In this assignment you will use
 threads, and these threads will be used in all later sessions of this lab. The objectives of this
-session are listed below.
+session are:
 
 - Learn what a thread is and how you can create one
 - Learn how you can use the I/O interface of the Raspberry Pi
@@ -20,12 +20,12 @@ a lot faster to create and destroy threads.
 ![threading](./images/thread.png)
 
 In this session you will learn how to create threads. The next session is about multithreading and the
-advantage of threads above processes.
+advantage of threads over processes.
 
 ### Using I/O on the Raspberry Pi
 
 This tutorial will provide information with regard to the input/output (I/O) functionalities of the
-Raspberry Pi. To make it easy, we will use a library which provides a set of functions to
+Raspberry Pi. To make it easy, we will use a library that provides a set of functions to
 communicate with the I/O pins of the Raspberry Pi. This lab will use the Wiring Pi library. This
 tutorial will explain the basic functions you have to use during this lab. If you want to use more
 advanced functions you can find a detailed reference on the [website of WiringPi](http://www.wiringpi.com/reference, "Click Here")
@@ -35,7 +35,7 @@ Before using the WiringPi I/O library, you need to include its header file in yo
     #include <wiringPi.h>
 
 We have to link against the library in the compilation process.
-The library is installed in the C library on the linux image used in the lab.
+The library is installed in the C library on the Linux image used in the lab.
 To link against it when compiling using gcc on the PI, we use the following gcc flags:
 
 		-I/usr/local/include -L/usr/local/lib -lwiringPi
@@ -111,11 +111,10 @@ your main function is the creation of a thread, waiting for the thread to finish
 program.
 
 The objectives are:
-
-- The main function must create a thread, wait till the thread is finished and
+- The main function must create a thread, wait until the thread is finished, and
   finally close the program.
 - Print the thread ID and function name of the thread
-- Create a counter which counts from 1 to 10 and waits 1 second between each increment
+- Create a counter that counts from 1 to 10 and waits 1 second between every two increments
 
 ### 2.2
 
@@ -125,14 +124,13 @@ Raspberry Pi. In this assignment you have to use the output function of this por
 LEDs.
 
 The objectives are:
-
-- The main function must create a thread, wait till the thread is finished, and finally close the
+- The main function must create a thread, wait until the thread is finished, and finally close the
   program.
 - Initialise the LED pins as output
 - Create a certain pattern with the LEDs
 - Close the thread after 20 seconds
 
-The pattern named above may be every pattern you like!
+The pattern mentioned above may be any pattern you like!
 It can be some difficult pattern or just the simple blinking of LEDs.
 You will receive recognition for making it blink to the rhythm of "You & Me - Flume Remix".
 
@@ -140,7 +138,7 @@ You will receive recognition for making it blink to the rhythm of "You & Me - Fl
 
 A Sudoku puzzle uses a 9 × 9 grid in which each column and row, as well as each of the nine
 3 × 3 subgrids, must contain all of the digits 1,2,···,9. The next figure presents an example of
-a valid Sudoku puzzle. This project consists of designing a multithreaded application that
+a valid solution to a Sudoku puzzle. This project consists of designing a multithreaded application that
 determines whether the solution to a Sudoku puzzle is valid.
 
 There are several ways of multithreading this application.
