@@ -35,6 +35,8 @@ For the first assignment you have to write a program that
 2. Prints your name and student number in an organised way
 3. Prints the ID of the process that runs your program
 
+Hint: for point 3, use the appropriate Linux system call.
+
 You can use the makefile for the compilation step which should make it easier to compile it again.
 
 You should understand why the process id differs across different runs.
@@ -43,26 +45,22 @@ You should understand why the process id differs across different runs.
 ### 1.2
 
 In this assignment you have to write a program that is able to execute commands
-that you will usually use in your command window.
+that you will usually use in the command window.
 The objective of this task is to become familiar with two different ways of executing Linux commands
 within a C program.
 
-For this assignment you have to write a program that creates a folder in
-the folder where your program is executed, and you have to execute the function to
-list all the files and directories in the current directory.
-
 The objectives are of your program are to:
 
-1. Create a folder
+1. Create a directory in the directory in which the program is executed
 2. List all files and directories in the current directory
 3. Accomplish the above by making use of:
-  - The possibility to invoke shell functions from C
+  - The possibility to invoke shell functions from C programs
   - The fact that many shell functions are written in C and are available through `#include`
 
 ### 1.3
 
 In the previous two assignments you wrote a program which was executed as a
-process on the Raspberry Pi. In this assignment you will extend assignment 1.2 with the functionality to run another process.
+process on the Raspberry Pi. In this assignment you will extend assignment 1.2 with the functionality to create and run another process.
 This so called "child" process has to execute the same code as the main program.
 
 The objectives are of your program are to:
