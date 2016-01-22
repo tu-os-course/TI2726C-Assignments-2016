@@ -19,13 +19,14 @@ You can start typing the username nonetheless.
 
 In Linux there are two primary methods of working with the PI over the UART:
 
-- Open a tty directly using `screen /dev/ttyUSB0 115200`.
+- Connect to the Pi, login, and create, compile, and run programs on the Pi.
+  To open a tty connection directly, use `screen /dev/ttyUSB0 115200`.
   This will drop you in a Linux bash shell on the Pi where you can login and use all shell features.
   It won't allow you to copy files directly however, so you will either need to work on the Pi or
-  to copy things through the clipboard into your editor of choice (try `nano` or `vi`).
+  to copy things through the clipboard into your editor of choice on the Pi (try `nano` or `vi`).
   You might need to use `sudo` to acquire the relevant rights if you use your own laptop.
 
-- You can also develop programs locally, and test them on the Pi by copying files onto the sdcard.
+- Develop programs locally, that is, on a TUD computer or your laptop, and run them on the Pi by copying files onto the sdcard.
   The sdcard is formatted with two partitions: a boot and the root filesystem.
   This option is not available on TUD computers, because you will need root access.
   You'll have to mount the second partition and move files to a location of your choice:
