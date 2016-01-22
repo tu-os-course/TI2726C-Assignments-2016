@@ -38,7 +38,7 @@ In Linux there are two primary methods of working with the PI over the UART:
       sudo mount /dev/mmcblk0p2 /mnt
 
       # copy your source to the Pi home directory
-      cp -r path/to/source /mnt/home/pi
+      cp -R path/to/source /mnt/home/pi
 
   You'll still need to connect to the TTY using the above method to run things.
 
