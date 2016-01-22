@@ -29,28 +29,16 @@ list all the current processes of the system.
 
 ### 1.1
 
-For the first assignment you have to write a small program.
-The file with the code of the program must be uploaded to the Raspberry Pi followed by a compilation of
-your code to get the actual program. Once you have performed the compilation step, you can run the
-program. The program you have to write has some simple objectives that are listed below. Keep in
-mind that when this program runs on the Raspberry Pi, it has become a process of the Linux Operating
-System.
+For the first assignment you have to write a program that
 
-The objectives of your program are to:
-
-1. Create variables with your name and student number
-2. Print your name and student number in an organised way
-3. Print the ID of the process that runs your program
-
-Once your implementation complies with these objectives, you have to upload it to the Raspberry Pi and compile it with the GCC compiler of the Raspberry
-Pi.
+1. Creates variables with your name and student number
+2. Prints your name and student number in an organised way
+3. Prints the ID of the process that runs your program
 
 You can use the makefile for the compilation step which should make it easier to compile it again.
 
-You should understand:
+You should understand why the process id differs across different runs.
 
-- why the process id differs across different runs
-- why you have to recompile the program on the Pi to run it there.
 
 ### 1.2
 
