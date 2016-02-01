@@ -3,8 +3,8 @@
 In this session you will:
 
 - become familiar with the Raspberry Pi,
-- write some simple C programs,
-- learn how to compile a C program,
+- write some simple C programs on the Pi,
+- learn how to compile a C program on the Pi,
 - learn what a process is and what it does.
 
 You can compile your programs using the included make file:
@@ -35,7 +35,7 @@ For the first assignment you have to write a program that
 2. Prints your name and student number in an organised way
 3. Prints the ID of the process that runs your program
 
-Hint: for point 3, use the appropriate Linux system call.
+Hint: For point 3, use the appropriate Linux system call.
 
 You can use the makefile for the compilation step which should make it easier to compile it again.
 
@@ -59,12 +59,12 @@ The objectives are of your program are to:
 
 ### 1.3
 
-In the previous two assignments you wrote a program which was executed as a
+In the previous two assignments you wrote a program that was executed as a
 process on the Raspberry Pi. In this assignment you will extend assignment 1.2 with the functionality to create and run another process.
 This so called "child" process has to execute the same code as the main program.
 
 The objectives are of your program are to:
 
-1. Create a "child" process that runs the previous assignment's functionality.
+1. Create a "child" process that has the previous assignment's functionality.
 2. Create an if/else statement to print which process is active (child or parent)
 3. Have the parent process wait for the child process to finish
