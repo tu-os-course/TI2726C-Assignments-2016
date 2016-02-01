@@ -63,7 +63,7 @@ In the previous two assignments you wrote a program that was executed as a
 process on the Raspberry Pi. In this assignment you will extend assignment 1.2 with the functionality to create and run another process.
 This so called "child" process has to execute the same code as the main program.
 
-The objectives are of your program are to:
+The objectives of your program are to:
 
 1. Create a "child" process that has the previous assignment's functionality.
 2. Create an if/else statement to print which process is active (child or parent)
