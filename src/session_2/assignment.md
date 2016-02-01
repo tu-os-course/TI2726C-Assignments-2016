@@ -3,14 +3,14 @@
 Session 2 of this lab contains several exercises about threads. In Session 1
 you learned about processes and how they work. In this assignment you will use
 threads, and these threads will be used in all later sessions of this lab. The objectives of this
-session are:
+session are to:
 
 - Learn what a thread is and how you can create one
-- Learn how you can use the I/O interface of the Raspberry Pi
+- Learn how to use the I/O interface of the Raspberry Pi
 
 ## Assignments
 
-A thread is a basic unit of CPU utilisation; it comprises a thread ID, a program counter, a register
+A thread is a basic unit of CPU utilisation. It comprises a thread ID, a program counter, a register
 set, and a stack. It shares with other threads belonging to the same process its code section, data
 section, and other operating-system resources, such as open files and signals. A traditional (or
 heavyweight) process has a single thread of control. If a process has multiple threads of control,
@@ -26,7 +26,7 @@ advantage of threads over processes.
 
 This tutorial will provide information with regard to the input/output (I/O) functionalities of the
 Raspberry Pi. To make it easy, we will use a library that provides a set of functions to
-communicate with the I/O pins of the Raspberry Pi. This lab will use the Wiring Pi library. This
+communicate with the I/O pins of the Raspberry Pi. This lab will use the WiringPi library. This
 tutorial will explain the basic functions you have to use during this lab. If you want to use more
 advanced functions you can find a detailed reference on the [website of WiringPi](http://www.wiringpi.com/reference, "Click Here")
 
@@ -36,7 +36,7 @@ Before using the WiringPi I/O library, you need to include its header file in yo
 
 We have to link against the library in the compilation process.
 The library is installed in the C library on the Linux image used in the lab.
-To link against it when compiling using gcc on the PI, we use the following gcc flags:
+To link against it when compiling using gcc on the Pi, we use the following gcc flags:
 
 		-I/usr/local/include -L/usr/local/lib -lwiringPi
 
@@ -107,25 +107,24 @@ Before you can use the functions for PWM you have to include the soft PWM librar
 
 The objective of this assignment is to create a new thread. You have to include the POSIX Thread
 library in order to create a thread in your main function. The only thing you have to implement in
-your main function is the creation of a thread, waiting for the thread to finish and killing the
-program.
+your main function is the creation of a thread, waiting for the thread to finish, and killing the
+process.
 
 The objectives are:
 - The main function must create a thread, wait until the thread is finished, and
-  finally close the program.
+  finally exit
 - Print the thread ID and function name of the thread
 - Create a counter that counts from 1 to 10 and waits 1 second between every two increments
 
 ### 2.2
 
 In this assignment you will - just as in assignment 2.1 - create a thread. Basically the same main
-functions can be used. However, instead of using a timer you will use the input/output port of the
+function can be used. However, instead of using a timer you will use the input/output port of the
 Raspberry Pi. In this assignment you have to use the output function of this port to blink multiple
 LEDs.
 
 The objectives are:
-- The main function must create a thread, wait until the thread is finished, and finally close the
-  program.
+- The main function must create a thread, wait until the thread is finished, and finally exit
 - Initialise the LED pins as output
 - Create a certain pattern with the LEDs
 - Close the thread after 20 seconds
@@ -134,7 +133,7 @@ The pattern mentioned above may be any pattern you like!
 It can be some difficult pattern or just the simple blinking of LEDs.
 You will receive recognition for making it blink to the rhythm of "You & Me - Flume Remix".
 
-### Bonus: Sudoku Solution Validator
+### Bonus Exercise: Sudoku Solution Validator
 
 A Sudoku puzzle uses a 9 × 9 grid in which each column and row, as well as each of the nine
 3 × 3 subgrids, must contain all of the digits 1,2,···,9. The next figure presents an example of
@@ -152,7 +151,7 @@ One suggested strategy is to create threads that check the following criteria:
 
 This would result in a total of eleven separate threads for validating a Sudoku puzzle. However, you
 are welcome to create even more threads for this project. For example, rather than creating one
-thread that checks all nine columns, you can create nine separate threads and have each of them
+thread that checks all nine columns, you can create nine separate threads that each
 check one column.
 
 #### Passing Parameters to Each Thread
@@ -184,7 +183,7 @@ which in turn will pass it as a parameter to the function that is to run as a se
 Each worker thread is assigned the task of determining the validity of a particular region of the
 Sudoku puzzle. Once a worker has performed this check, it must pass its results back to the parent.
 One good way to handle this is to create an array of integer values that is visible to each thread.
-The ith index in this array corresponds to the ith worker thread. If a worker sets its corresponding
-value to 1, it is indicating that its region of the Sudoku puzzle is valid. A value of 0 would
-indicate otherwise. When all worker threads have completed, the parent thread checks each entry in
-the result array to determine if the Sudoku puzzle is valid.
+The i-th index in this array corresponds to the i-th worker thread. If a worker sets its corresponding
+value to 1, it indicates that its region of the Sudoku puzzle is valid. A value of 0 would
+indicate otherwise. When all worker threads have completed, the parent thread checks all entries in
+the result array to determine if the solution to the Sudoku puzzle is valid.
