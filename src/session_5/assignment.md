@@ -1,6 +1,6 @@
 # Session 5: Synchronisation of Threads
 
-In the previous chapter you have learned what scheduling is and some algorithms that can be used to schedule threads. This chapter will introduce the synchronisation of threads.
+In Assigment 4 you have learned what scheduling is and some algorithms that can be used to schedule threads. This assignment will introduce the synchronisation of threads.
 
 **The objectives for this session are:**
 
@@ -64,7 +64,7 @@ Another method of implementing Assignment 5.2 such that the counter increments t
 
 Could you think of other solutions solving the problem of assignment 5.3? Draft a very short essay of possible other solutions. You can use the skeleton `5_4.tex` file as a template for your essay. **Your solution will be subjected to a plagiarism check**
 
-# Bonus Question: The Sleeping Teaching Assistant
+# Bonus Exercise: The Sleeping Teaching Assistant
 
 A university computer science department has a teaching assistant (TA) who helps undergraduate students with their programming assignments during regular office hours. The TA's office is rather small and has room for only one desk with a chair and computer. There are three chairs in the hallway outside the office where students can sit and wait if the TA is currently helping another student. When there are no students who need help during office hours, the TA sits at the desk and takes a nap. If a student arrives during office hours and finds the TA sleeping, the student must awaken the TA to ask for help. If a student arrives and finds the TA currently helping another student, the student sits on one of the chairs in the hallway and waits. If no chairs are available, the student will come back at a later time. Using PThreads, mutex locks, and semaphores, implement a solution that coordinates the activities of the TA and the students. Details for this assignment are provided below.
 
