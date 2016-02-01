@@ -58,16 +58,16 @@ By far the simplest CPU-scheduling algorithm is the first-come, first-served (FC
 
 If you plan on using the pthread library for this, make sure you study the examples in the man page for scheduling carefully.
 
-### Bonus Questions
+### Bonus Exercise
 
-Below you will find three questions. If you answer all these questions correctly, you will be rewarded a bonus! Draft an essay that consists of a title page and **one** page for the answers to the questions. Your essay should exists of three sections, each section covering a question. You can use `4_bonus.tex` as a template for your solutions. This file can be compiled with Latex. Furthermore, you should **clearly explain** why your answer is the correct one and why the others are incorrect. **Plagiarism checks will be conducted!**
+The bonus exercise of this session consists of three question, all of which you have to answer correctly in order to receive the bonus points. Write an essay that consists of a title page and **one** page for the answers to the questions. Your essay should exists of three sections, each section covering a question. You can use `4_bonus.tex` as a template for your solutions. This file can be compiled with Latex. Furthermore, you should **clearly explain** why your answer is the correct one and why the others are incorrect. **Plagiarism checks will be conducted!**
 
 #### Question 1
 
-Which of the following scheduling algorithms could result in starvation?
-You will have to explain in your essay which one(s) could result in starvation.
+Which of the following scheduling algorithms can result in starvation?
+Do provide an explanation of your answer.
 
-* first-come, first-served
+* First-come, first-served
 * Shortest job first
 * Round Robin
 * Priority
