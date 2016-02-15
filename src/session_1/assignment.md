@@ -74,11 +74,11 @@ The objectives of your program are to:
 This project consists of designing a C program to serve as a shell interface that accepts user commands and then executes each command in a separate process.
 A shell interface gives the user a prompt, after which the next command is entered. The example below illustrates the prompt osh> and the user's next command, which displays the file prog.c on the terminal using the Linux cat command:
 
-osh> cat prog.c
+    osh> cat prog.c
 
 One technique for implementing a shell interface is to have the parent process first read what the user enters on the command line (in this case, cat prog.c), and then create a separate child process that performs the command. Unless otherwise specified, the parent process waits for the child to exit before continuing. However, Linux shells typically also allow the child process to run in the background, or concurrently. To accomplish this, we add an ampersand (&) at the end of the command. Thus, if we rewrite the above command as
 
-osh> cat prog.c &
+    osh> cat prog.c &
 
 the parent and child processes will run concurrently.
 The separate child process is created using the fork() system call, and the user's command is executed using one of the system calls in the exec() family of system calls.
@@ -88,7 +88,6 @@ This project is organised into two parts:
 
 1. creating the child process and executing the command in the child, and 
 2. modifying the shell to allow a history feature.
-
 
     #include <stdio.h>
     #include <unistd.h>
@@ -152,6 +151,6 @@ Your program should support two techniques for retrieving commands from the comm
 2. When the user enters a single ! followed by an integer N, the Nth command in the history is executed.
 
 Continuing our example from above, if the user enters !!, the ps command will be performed; if the user enters !3, the command cal will be executed. Any command executed in this fashion should be echoed on the user’s screen. The command should also be placed in the history buffer as the next command.
-The program should also manage basic error handling. If there are no commands in the history, entering !! should result in a message ``No commands in history.'' 
-If there is no command corresponding to the number entered with the single !, the program should output ``No such command in history.''
+The program should also manage basic error handling. If there are no commands in the history, entering !! should result in a message *No commands in history*. 
+If there is no command corresponding to the number entered with the single !, the program should output *No such command in history*.
 
