@@ -89,7 +89,7 @@ This project is organised into two parts:
 1. creating the child process and executing the command in the child, and 
 2. modifying the shell to allow a history feature.
 
-'''
+```
     #include <stdio.h>
     #include <unistd.h>
     
@@ -109,7 +109,7 @@ This project is organised into two parts:
     }
     return 0;
     }
-'''
+```
     
 ### Part 1: Creating a Child Process
 
