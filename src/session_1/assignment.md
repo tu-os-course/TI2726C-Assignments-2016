@@ -68,3 +68,5 @@ The objectives of your program are to:
 1. Create a "child" process that has the previous assignment's functionality.
 2. Create an if/else statement to print which process is active (child or parent)
 3. Have the parent process wait for the child process to finish
+
+### Bonus Exercise: UNIX Shell and History Feature
