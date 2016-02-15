@@ -83,8 +83,8 @@ One technique for implementing a shell interface is to have the parent process f
 the parent and child processes will run concurrently.
 The separate child process is created using the fork() system call, and the user's command is executed using one of the system calls in the exec() family of system calls.
 A C program that provides the general operations of a command-line shell is supplied below. 
-The main() function presents the prompt osh-> and outlines the steps to be taken after input from the user has been read. The main() function continually loops as long as should run equals 1; when the user enters exit at the prompt, your program will set should run to 0 and terminate.
-This project is organised into two parts: 
+The main() function presents the prompt osh-> and outlines the steps to be taken after input from the user has been read. The main() function continually loops as long as the boolean should_run equals 1; when the user enters exit at the prompt, your program will set should_run to 0 and terminate.
+This exercise is organised into two parts: 
 
 1. creating the child process and executing the command in the child, and 
 2. modifying the shell to allow a history feature.
